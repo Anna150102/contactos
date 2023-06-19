@@ -1,5 +1,6 @@
 package com.example.agenda_celular.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
 import com.example.agenda_celular.PersonaModel
@@ -12,6 +13,8 @@ class PersonaRepository constructor(
     fun ObtenerTodoPersona(): LiveData<List<PersonaModel>> = PersonaDao.obtenerPersona().asLiveData()
 
     suspend fun guardarPersona(persona: PersonaModel){
+
+
         PersonaDao.guardarPersona(persona)
     }
 
@@ -21,5 +24,9 @@ class PersonaRepository constructor(
 
     suspend fun eliminarTodo (){
         PersonaDao.eliminarTodosPersona()
+    }
+
+    suspend fun editarPersona(persona: PersonaModel){
+        PersonaDao.actualizarPersona(persona)
     }
 }

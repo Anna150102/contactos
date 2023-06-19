@@ -1,6 +1,7 @@
 package com.example.agenda_celular
 
 import PersonaAdapter
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings.Global
@@ -24,25 +25,28 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.rvRecycler.layoutManager = LinearLayoutManager(this)
-        viewModel = ViewModelProvider(this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)).
-        get(PersonaViewModel::class.java)
-observeEvents()
-        GlobalScope.launch {
-            viewModel.EliminarTodos()
-            var dataa = PersonaModel (0, "Anna Isabel", "87981240",21)
-            viewModel.insertPersona(dataa)
-        }
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        ).get(PersonaViewModel::class.java)
+        observeEvents()
 
+        binding.imAdd.setOnClickListener {
+            var intent = Intent(binding.root.context, ActivityAgregar::class.java)
+            binding.root.context.startActivity(intent)
+        }
     }
+
     private fun observeEvents() {
         viewModel.listPersona.observe(this, Observer { list ->
             list?.let {
-                adapterPersona = PersonaAdapter(it)
+                adapterPersona = PersonaAdapter(it, viewModel)
                 binding.rvRecycler.adapter = adapterPersona
                 adapterPersona.notifyDataSetChanged()
             }
         })
 
     }
+
+
 }

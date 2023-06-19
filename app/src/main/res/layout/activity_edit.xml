@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="8dp"
+    tools:context=".ActivityEdit">
 
     <androidx.cardview.widget.CardView
+
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="10dp"
+        app:cardBackgroundColor="@color/gris"
         app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@color/gris">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,8 +37,8 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp">
 
-                <TextView
-                    android:id="@+id/tvNombre"
+                <EditText
+                    android:id="@+id/etName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -41,35 +48,31 @@
 
                     />
 
-                <TextView
-                    android:id="@+id/tvTelefono"
+                <EditText
+                    android:id="@+id/etphone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:drawableStart="@drawable/phone_24" />
 
 
-                <TextView
-                    android:id="@+id/tvEdad"
+                <EditText
+                    android:id="@+id/etage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:drawableStart="@drawable/person_24"
                     android:textColor="@color/black" />
 
-                <ImageButton
-                    android:id="@+id/ib_eliminar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/delete_24" />
 
-                <ImageButton
-                    android:id="@+id/ib_editar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/edit_24" />
-
-
+                <ImageView
+                    android:id="@+id/ivSave"
+                    android:layout_width="56dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="176dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/save_24"
+                    tools:layout_editor_absoluteY="188dp" />
             </LinearLayout>
 
 
@@ -77,4 +80,7 @@
     </androidx.cardview.widget.CardView>
 
 
-</LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

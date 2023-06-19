@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.agenda_celular.PersonaModel
 
-@Database(entities = [PersonaModel::class], version = 2)
+@Database(entities = [PersonaModel::class], version = 3)
 abstract class RoomDb : RoomDatabase() {
     abstract fun PersonaDao(): PersonaDao
 

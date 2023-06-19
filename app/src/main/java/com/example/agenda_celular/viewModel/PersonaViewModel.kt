@@ -27,4 +27,7 @@ class PersonaViewModel(application: Application) : AndroidViewModel(application)
         }
     fun EliminarTodos ()=
         viewModelScope.launch (Dispatchers.IO){repository.eliminarTodo()}
+
+    fun editarPersona (persona: PersonaModel) =
+        viewModelScope.launch(Dispatchers.IO) { repository.editarPersona(persona) }
 }
