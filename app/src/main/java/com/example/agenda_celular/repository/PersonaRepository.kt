@@ -3,30 +3,27 @@ package com.example.agenda_celular.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import com.example.agenda_celular.FirebaseAgenda.AgendaFirebase
+import com.example.agenda_celular.FirebaseAgenda.AgendaFirebase.CreatePersona
+import com.example.agenda_celular.FirebaseAgenda.AgendaFirebase.getPersona
 import com.example.agenda_celular.PersonaModel
 import com.example.agenda_celular.room.PersonaDao
 
-class PersonaRepository constructor(
-    private val PersonaDao: PersonaDao
-)
+class PersonaRepository
 {
-    fun ObtenerTodoPersona(): LiveData<List<PersonaModel>> = PersonaDao.obtenerPersona().asLiveData()
+   suspend fun GetAllPersonaFirestone(): List<PersonaModel> = getPersona()
 
     suspend fun guardarPersona(persona: PersonaModel){
-
-
-        PersonaDao.guardarPersona(persona)
+    CreatePersona(persona)
     }
 
     suspend fun eliminarPersona (persona: PersonaModel){
-        PersonaDao.eliminarPersona(persona)
+     AgendaFirebase.deletePersona(persona)
     }
 
-    suspend fun eliminarTodo (){
-        PersonaDao.eliminarTodosPersona()
-    }
+
 
     suspend fun editarPersona(persona: PersonaModel){
-        PersonaDao.actualizarPersona(persona)
+    AgendaFirebase.UpdatePersona(persona)
     }
 }

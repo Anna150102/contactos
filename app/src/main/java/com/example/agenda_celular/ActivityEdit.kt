@@ -18,33 +18,30 @@ class ActivityEdit : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        var id = intent.getIntExtra("id", 0)
-        var nombre = intent.getStringExtra("nombre").toString()
-        var telefono = intent.getStringExtra("telefono").toString()
-        var edad = intent.getStringExtra("edad").toString()
+        var dataPersonaSelect = listPersona.personaSelect
+        val id = intent.getIntExtra("id", 0)
+        val name = intent.getStringExtra("name").toString()
+        val phone = intent.getStringExtra("phone").toString()
+        val age = intent.getStringExtra("age").toString()
 
-        binding.etName.text = Editable.Factory.getInstance().newEditable(nombre)
-        binding.etphone.text = Editable.Factory.getInstance().newEditable(telefono)
-        binding.etage.text = Editable.Factory.getInstance().newEditable(edad)
+        binding.etName.text = Editable.Factory.getInstance().newEditable(name)
+        binding.etphone.text = Editable.Factory.getInstance().newEditable(phone)
+        binding.etage.text = Editable.Factory.getInstance().newEditable(age)
 
         viewModel = ViewModelProvider (this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(PersonaViewModel::class.java)
 
         binding.ivSave.setOnClickListener{
             GlobalScope.launch {
-                Save(
-                    PersonaModel(
-                        id,
-                        binding.etName.text.toString(),
-                        binding.etphone.text.toString(),
-                        binding.etage.text.toString().toInt()
-                    )
-                )
+                dataPersonaSelect.name = binding.etName.text.toString()
+                dataPersonaSelect.phone = binding.etphone.text.toString()
+                dataPersonaSelect.age = binding.etage.text.toString()
+                EditInfoPersona(dataPersonaSelect)
             }
         }
     }
 
-    private fun Save(datos: PersonaModel) {
-        viewModel.editarPersona(datos)
+    private fun EditInfoPersona(persona: PersonaModel) {
+        viewModel.editarPersona(persona)
         this.finish()
     }
 }

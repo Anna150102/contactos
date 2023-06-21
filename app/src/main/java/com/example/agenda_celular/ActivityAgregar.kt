@@ -31,12 +31,14 @@ class ActivityAgregar : AppCompatActivity() {
 
 
     suspend fun Save() {
-        var newPersona= PersonaModel(
+        var Datainit = PersonaModel(
             0,
-            binding.etName.text.toString(), binding.etphone.text.toString(),
-            binding.etage.text.toString().toInt()
+            binding.etName.text.toString(),
+            binding.etphone.text.toString(),
+            binding.etage.text.toString(),
+            null
         )
-        viewModel.insertPersona(newPersona)
+        viewModel.insertPersona(Datainit)
 
         this.finish()
     }

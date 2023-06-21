@@ -16,37 +16,19 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: PersonaViewModel
-    private lateinit var adapterPersona: PersonaAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        binding.rvRecycler.layoutManager = LinearLayoutManager(this)
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(PersonaViewModel::class.java)
-        observeEvents()
-
-        binding.imAdd.setOnClickListener {
-            var intent = Intent(binding.root.context, ActivityAgregar::class.java)
-            binding.root.context.startActivity(intent)
+//        binding.btnOpenWindow.setOnClickListener {
+//            val intent = Intent(this, listPersona::class.java)
+//            startActivity(intent)
+//        }
+        binding.btnOpenWindow.setOnClickListener{
+            val intent = Intent(this, listPersona::class.java)
+            startActivity(intent)
         }
     }
-
-    private fun observeEvents() {
-        viewModel.listPersona.observe(this, Observer { list ->
-            list?.let {
-                adapterPersona = PersonaAdapter(it, viewModel)
-                binding.rvRecycler.adapter = adapterPersona
-                adapterPersona.notifyDataSetChanged()
-            }
-        })
-
     }
-
-
-}
