@@ -30,6 +30,7 @@ class listPersona : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btlog.setOnClickListener{logout()}
 
     }
 

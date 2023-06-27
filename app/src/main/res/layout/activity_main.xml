@@ -11,7 +11,7 @@
         android:id="@+id/btnOpenWindow"
         android:layout_width="346dp"
         android:layout_height="60dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="164dp"
         android:background="#1bcf5c"
         android:backgroundTint="#1bcf5c"
         android:text="Iniciar sesiòn"
@@ -22,9 +22,23 @@
         android:textStyle="bold"
         app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.753"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGoogle"
+        android:layout_width="357dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="92dp"
+        android:drawableRight="@drawable/common_google_signin_btn_icon_light"
+        android:text="Iniciar sesión con Google"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.256" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

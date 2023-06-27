@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "49481391332-fs715undo8l2l8baimb53q3jdqe0jf8v.apps.googleusercontent.com",
+          "client_id": "49481391332-gku2vn99mfe6o88mm8jf4363m9hdnrd1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.agenda_celular",
+            "certificate_hash": "a87272b81ea4165ac450d3b53092355f62afe749"
+          }
+        },
+        {
+          "client_id": "49481391332-s3vphtudke5ik53lk7uasn6hmbnc4i1h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
